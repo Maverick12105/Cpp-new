@@ -1,6 +1,13 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "format": "cpp",
+        "optional": "cpp",
+        "*.tcc": "cpp",
+        "compare": "cpp",
+        "limits": "cpp",
+        "type_traits": "cpp",
+        "variant": "cpp"
     }
 }
