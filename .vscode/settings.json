@@ -8,6 +8,7 @@
         "compare": "cpp",
         "limits": "cpp",
         "type_traits": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "cmath": "cpp"
     }
 }
