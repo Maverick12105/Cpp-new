@@ -1,10 +1,82 @@
 #include <iostream>
 using namespace std;
 
+class Weight{
+    public:
+        void setWeightPounds();
+        void setWeightKilograms();
+        void setWeightOunces();
+        double getWeightPounds();
+        double getWeightKilograms();
+        double getWeightOunces();
+    private:
+        double pounds;
+};
+
 int main(){
-    
+    char repeat;
+    char weightType;
+    Weight weight;
+
+    do{
+        cout << "p/k/o => ";
+        cin >> weightType;
+
+        switch (weightType){
+            case 'p':
+                weight.setWeightPounds();
+                break;
+            case 'k':
+                weight.setWeightKilograms();
+                break;
+            case 'o':
+                weight.setWeightOunces();
+                break;
+        }
+
+        cout << endl;
+        cout << "Pounds = " << weight.getWeightPounds() << endl;
+        cout << "Kilograms = " << weight.getWeightKilograms() << endl;
+        cout << "Ounces = " << weight.getWeightOunces() << endl;
+
+        cout << endl << "Repeat?(y/n) => ";
+        cin >> repeat;
+    }while (repeat == 'y');
     
     return 0;
+}
+
+void Weight::setWeightPounds(){
+    double weight;
+    cout << "Pounds = ";
+    cin >> weight;
+    pounds = weight; 
+}
+
+void Weight::setWeightKilograms(){
+    double weight;
+    cout << "Kilograms = ";
+    cin >> weight;
+    pounds = weight * 2.21; 
+}
+
+void Weight::setWeightOunces(){
+    double weight;
+    cout << "Ounces = ";
+    cin >> weight;
+    pounds = weight / 16; 
+}
+
+double Weight::getWeightPounds(){
+    return pounds;
+}
+
+double Weight::getWeightKilograms(){
+    return pounds / 2.21;
+}
+
+double Weight::getWeightOunces(){
+    return pounds * 16;
 }
 
 /*
