@@ -1,10 +1,71 @@
 #include <iostream>
 using namespace std;
+#include <fstream>
+
+const int BOXSIZE = 3;
+const int POSSIBLEPRODUCE = 5;
+const string FILEPATH = "D:\\homework\\C++ new\\4th\\ch6\\Produce_list.txt";
+
+class BoxOfProduce{
+    public:
+        void setProduce(int index, string produce);
+        string getProduce(int index);
+        void displayContent();
+    private:
+        string content[BOXSIZE];
+};
 
 int main(){
+    fstream produce_file;
+    string produce_list[POSSIBLEPRODUCE];
+    BoxOfProduce box;
+    char substitute;
+    int substitute_from, subsitute_to;
+
+    produce_file.open(FILEPATH);
+    for(int i = 0; i < POSSIBLEPRODUCE; ++i)
+        produce_file >> produce_list[i];
+    produce_file.close();
+
+    for(int i = 0; i < BOXSIZE; ++i)
+        box.setProduce(i, produce_list[rand() % 5]);
+
+    while(true){
+        box.displayContent();
+        cout << "Do you wish to substitute any? (y/n) => ";
+        cin >> substitute;
+        if(substitute != 'y')
+            break;
+        cout << "which one? (1/2/3) => ";
+        cin >> substitute_from;
+        cout << endl;
+        for(int i = 0; i < POSSIBLEPRODUCE; ++i)
+            cout << i + 1 << '.' << produce_list[i] << endl;
+        cout << "with which? (1/2/3/4/5) => ";
+        cin >> subsitute_to;
+        cout << endl;
+        box.setProduce(substitute_from - 1, produce_list[subsitute_to - 1]);
+    }
     
+    cout << endl;
+    box.displayContent();
+    cout << "Will be deliver.";
     
     return 0;
+}
+
+void BoxOfProduce::setProduce(int index, string produce){
+    content[index] = produce;
+}
+
+string BoxOfProduce::getProduce(int index){
+    return content[index];
+}
+
+void BoxOfProduce::displayContent(){
+    cout << "The box is contain of " << endl;
+    for (int i = 0; i < BOXSIZE; ++i)
+        cout << i + 1 << '.' << content[i] << endl;
 }
 
 /*
