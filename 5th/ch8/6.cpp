@@ -1,10 +1,33 @@
 #include <iostream>
 using namespace std;
+#include <math.h>
+
+class Myinteger{
+    public:
+        Myinteger();
+        Myinteger(int intVal): mint(intVal) {}
+        int getmint() {return mint;}
+        void setmint(int mintVal) {mint = mintVal;}
+        int operator [] (int index);
+    private:
+        int mint;
+};
 
 int main(){
+    Myinteger x(418);
 
+    cout << x[1] << endl
+         << x[2] << endl
+         << x[3] << endl
+         << x[4];
 
     return 0;
+}
+
+int Myinteger::operator [] (int index){
+    if ((mint / pow(10, index - 1) < 1))
+        return -1;
+    return mint / ((int) pow(10, index - 1)) % 10;
 }
 
 /*
