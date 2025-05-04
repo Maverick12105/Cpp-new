@@ -2,7 +2,48 @@
 using namespace std;
 
 int main(){
+    bool repeat = true;
+    string strIn;
+    bool flag;
 
+    while (repeat){
+        cin >> strIn;
+        bool flag = false;
+        if (strIn.length() > 3){
+            for (int i = 0; i < 4; ++i)
+                if (!isalpha(strIn[i])){
+                    flag = true;
+                    break;
+                }
+            if (!flag)
+                for (int i = 4; i < strIn.length(); ++i)
+                    if (isalpha(strIn[i])){
+                        flag = true;
+                        break;
+                    }
+        }
+        else 
+            flag = true;
+        if (flag)
+            cout << strIn;
+        else{
+            if (isupper(strIn[0]))
+                cout << "Love";
+            else
+                cout << "love";
+            for (int i = 4; i < strIn.length(); ++i)
+                cout << strIn[i];
+        }
+        if (isspace(cin.peek()))
+            cout << (char) cin.get();
+        
+            cout << "Repeat? => ";
+            cin >> repeat;
+            if (!repeat)
+                break;
+    }
+
+    
 
     return 0;
 }
