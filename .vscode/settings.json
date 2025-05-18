@@ -12,6 +12,7 @@
         "cmath": "cpp",
         "iosfwd": "cpp",
         "atomic": "cpp",
-        "text_encoding": "cpp"
+        "text_encoding": "cpp",
+        "new": "cpp"
     }
 }
