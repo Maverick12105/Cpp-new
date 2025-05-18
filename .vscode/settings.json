@@ -13,6 +13,8 @@
         "iosfwd": "cpp",
         "atomic": "cpp",
         "text_encoding": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "string": "cpp",
+        "istream": "cpp"
     }
 }
